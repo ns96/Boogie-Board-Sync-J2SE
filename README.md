@@ -1,8 +1,8 @@
-# Boogie Board Sync SDK v1.0 for J2SE
+# Boogie Board Sync SDK 0.1 for J2SE
 
-The software development kit provides a library for communicating with a Boogie Board Sync on J2SE Platforms. This library allows developers to view, modify and retrieve aspects of the file system on the Sync. It also allows developers to retrieve real-time information like current position of the stylus and a user pressing the save and erase button.
+The software development kit provides a library for communicating with a Boogie Board Sync on J2SE Platforms. It is based largely on the [Andriod SDK from Kent-Displays](https://github.com/kent-displays/boogie-board-sync-android-sdk) and is still very much a work in progress.  This library allows developers to view, modify and retrieve aspects of the file system on the Sync. It also allows developers to retrieve real-time information, like current position of the stylus and a user pressing the save and erase button (**10-26-34 -- Unfortunately this functionality currently doesn't work**).
 
-*Note: This library requires the excellent Bluecove library (http://bluecove.org/). All communication is done using Bluetooth.*
+*Note: This library requires the Bluecove library (http://bluecove.org/). All communication is done using Bluetooth.*
 
 - [Installing](#installing)
 - [Configuring](#configuring)
@@ -14,7 +14,7 @@ The software development kit provides a library for communicating with a Boogie 
 
 ## Installing
 
-Note: This library was built using the Neatbeans IDE (https://netbeans.org/).
+Note: This library was developed using the Neatbeans IDE (https://netbeans.org/).
 
 #### Option 1: Download entire project
 Download the entire project directory here and then just open it in NetBeans the project into Android Studio. From there you should be able to get up and running with the included samples.
@@ -31,35 +31,10 @@ This is a quick overview on how the entire library and API are structured for us
 
 This library is broken up into two essential parts. On one side you have the Streaming API where you can get erase/save button pushes as well as real-time paths that are drawn on the Sync. On the other is the File Transfer API where you can delete, download files from the Sync as well as traverse the internal directory structure of the Sync.
 
-Typically, you would first bind to the SyncStreamingService or SyncFtpService. When you receive a callback for ```onServiceConnected()``` you will get an IBinder. From there you can cast the IBinder to the specific binder class and then retrieve reference to the actual service object.
-
-
-```
-private final ServiceConnection mConnection = new ServiceConnection() {
-	public void onServiceConnected(ComponentName name, IBinder service) {
-         mFtpServiceBound = true;
-         SyncFtpService.SyncFtpBinder binder = (SyncFtpService.SyncFtpBinder) service;
-         mFtpService = binder.getService();
-         mFtpService.addListener(PlaceholderFragment.this);// Add listener to retrieve events from ftp service.
-
-         if(mFtpService.getState() == SyncFtpService.STATE_CONNECTED) {
-             // Connect to the ftp server.
-             mFtpService.connect();
-         }
-     }
-
-    public void onServiceDisconnected(ComponentName name) {
-        mFtpService = null;
-        mFtpServiceBound = false;
-    }
-};
-```
-
 
 ## Documentation
 
 Javadocs for this library can be found [here](#).
-
 
 ## Limitations
 There are the following limitations still imposed upon this library.
