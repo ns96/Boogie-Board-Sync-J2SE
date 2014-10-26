@@ -1,6 +1,6 @@
-# Boogie Board Sync SDK 0.1 for J2SE
+# Boogie Board Sync SDK v0.1 for J2SE
 
-The software development kit provides a library for communicating with a Boogie Board Sync on J2SE Platforms. It is based largely on the [Andriod SDK from Kent-Displays](https://github.com/kent-displays/boogie-board-sync-android-sdk) and is still very much a work in progress.  This library allows developers to view, modify and retrieve aspects of the file system on the Sync. It also allows developers to retrieve real-time information, like current position of the stylus and a user pressing the save and erase button (**10-26-34 -- Unfortunately this functionality currently doesn't work**).
+The software development kit provides a library for communicating with a Boogie Board Sync on J2SE Platforms. It is based largely on the [Andriod SDK from Kent Displays](https://github.com/kent-displays/boogie-board-sync-android-sdk) and is still very much a work in progress.  This library allows developers to view, modify and retrieve aspects of the file system on the Sync. It also allows developers to retrieve real-time information, like current position of the stylus and a user pressing the save and erase button (**10-26-34 -- Unfortunately this functionality currently doesn't work**).
 
 *Note: This library requires the Bluecove library (http://bluecove.org/). All communication is done using Bluetooth.*
 
